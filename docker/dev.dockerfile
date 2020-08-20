@@ -6,7 +6,7 @@ WORKDIR /openvidu-browser
 RUN apk add wget unzip
 
 # Download openvidu-browser from master, compile and pack it
-RUN wget "https://github.com/OpenVidu/openvidu/archive/master.zip" -O openvidu-browser.zip && \
+RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/archive/master.zip" -O openvidu-browser.zip && \
     unzip openvidu-browser.zip openvidu-master/openvidu-browser/* && \
     rm openvidu-browser.zip && \
     mv openvidu-master/openvidu-browser/ . && \
@@ -28,7 +28,7 @@ COPY --from=openvidu-browser-build /openvidu-browser/openvidu-browser-*.tgz .
 RUN apk add wget unzip
 
 # Download openvidu-call from specific branch (master by default), intall openvidu-browser and build for production
-RUN wget "https://github.com/OpenVidu/openvidu-call/archive/${BRANCH_NAME}.zip" -O openvidu-call.zip && \
+RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/archive/openvidu-call-master.zip" -O openvidu-call.zip && \
     unzip openvidu-call.zip && \
     rm openvidu-call.zip && \
     mv openvidu-call-${BRANCH_NAME}/openvidu-call-front/ . && \

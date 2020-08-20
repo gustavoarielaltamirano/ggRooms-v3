@@ -10,6 +10,9 @@
 # dependencies
 **/node_modules
 
+**/openvidu-call-front/package-lock.json
+**/openvidu-call-back/package-lock.json
+
 **/projects/openvidu-angular/src/lib/environments
 **/projects/openvidu-angular/src/lib/shared
 **/projects/openvidu-angular/src/lib/video-room
