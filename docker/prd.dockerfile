@@ -1,5 +1,5 @@
 # Imagen docker front / back para videochat
-FROM node:lts-alpine3.11 as openvidu-call-build
+FROM node:lts-alpine3.11 as ggRooms
 
 WORKDIR /openvidu-call
 
@@ -34,7 +34,7 @@ FROM node:lts-alpine3.11
 
 WORKDIR /opt/openvidu-call
 
-COPY --from=openvidu-call-build /openvidu-call/dist .
+COPY --from=ggRooms /openvidu-call/dist .
 # Entrypoint
 COPY ./entrypoint.sh /usr/local/bin
 RUN apk add curl && \
