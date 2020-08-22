@@ -6,7 +6,7 @@ WORKDIR /openvidu-browser
 RUN apk add wget unzip
 
 # Download openvidu-browser from master, compile and pack it
-RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/archive/master.zip" -O openvidu-browser.zip && \
+RUN wget "https://github.com/OpenVidu/openvidu/archive/master.zip" -O openvidu-browser.zip && \
     unzip openvidu-browser.zip openvidu-master/openvidu-browser/* && \
     rm openvidu-browser.zip && \
     mv openvidu-master/openvidu-browser/ . && \
@@ -28,18 +28,18 @@ COPY --from=openvidu-browser-build /openvidu-browser/openvidu-browser-*.tgz .
 RUN apk add wget unzip
 
 # Download openvidu-call from specific branch (master by default), intall openvidu-browser and build for production
-RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/archive/openvidu-call-master.zip" -O openvidu-call.zip && \
+RUN wget "https://github.com/OpenVidu/openvidu-call/archive/master.zip" -O openvidu-call.zip && \
     unzip openvidu-call.zip && \
     rm openvidu-call.zip && \
-    mv openvidu-call-${BRANCH_NAME}/openvidu-call-front/ . && \
-    mv openvidu-call-${BRANCH_NAME}/openvidu-call-back/ . && \
+    mv openvidu-call-master/openvidu-call-front/ . && \
+    mv openvidu-call-master/openvidu-call-back/ . && \
     rm openvidu-call-front/package-lock.json && \
     rm openvidu-call-back/package-lock.json && \
-    rm -rf openvidu-call-${BRANCH_NAME} && \
+    rm -rf openvidu-call-master && \
     # Install openvidu-browser in openvidu-call and build it for production
     npm i --prefix openvidu-call-front openvidu-browser-*.tgz && \
     npm i --prefix openvidu-call-front && \
-    npm run build-prod ${BASE_HREF} --prefix openvidu-call-front && \
+    npm run build-prod master --prefix openvidu-call-front && \
     rm -rf openvidu-call-front && \
     # Install openvidu-call-back dependencies and build it for production
     npm i --prefix openvidu-call-back && \

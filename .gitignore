@@ -6,7 +6,7 @@
 */out-tsc
 **/openvidu-webcomponent
 **/public
-**/archive
+# **/archive
 
 # dependencies
 **/node_modules

@@ -14,14 +14,14 @@ RUN apk add wget unzip
 RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/raw/master/archive/openvidu-call-master.zip" -O openvidu-call.zip && \
     unzip openvidu-call.zip && \
     rm openvidu-call.zip && \
-    # mv openvidu-call-${BRANCH_NAME}/openvidu-call-front/ . && \
-    # mv openvidu-call-${BRANCH_NAME}/openvidu-call-back/ . && \
+    # mv openvidu-call-master/openvidu-call-front/ . && \
+    # mv openvidu-call-master/openvidu-call-back/ . && \
     # rm openvidu-call-front/package-lock.json && \
     # rm openvidu-call-back/package-lock.json && \
-    # rm -rf openvidu-call-${BRANCH_NAME} && \
+    # rm -rf openvidu-call-master && \
     # Instala dependencias para el front y despliega en prd
     npm i --prefix openvidu-call-front && \
-    npm run build-prod ${BASE_HREF} --prefix openvidu-call-front && \
+    npm run build-prod master --prefix openvidu-call-front && \
     rm -rf openvidu-call-front && \
     # Instala dependencias para el back y construye el despliegue en prd
     npm i --prefix openvidu-call-back && \
