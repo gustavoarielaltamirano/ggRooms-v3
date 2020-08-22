@@ -6,19 +6,19 @@ WORKDIR /openvidu-call
 ARG BRANCH_NAME=master
 ARG BASE_HREF=/
 
-RUN apk add wget unzip git
+RUN apk add wget unzip
 
 # Clon desde github ggRooms-v3 (rama master), despliegue en prd
 # RUN git clone "https://github.com/gustavoarielaltamirano/ggRooms-v3.git" . && \
 # Download openvidu-call from specific branch (master by default), intall openvidu-browser and build for production
-RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/archive/openvidu-call-master.zip" -O openvidu-call.zip && \
+RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/raw/master/archive/openvidu-call-master.zip" -O openvidu-call.zip && \
     unzip openvidu-call.zip && \
     rm openvidu-call.zip && \
-    mv openvidu-call-${BRANCH_NAME}/openvidu-call-front/ . && \
-    mv openvidu-call-${BRANCH_NAME}/openvidu-call-back/ . && \
-    rm openvidu-call-front/package-lock.json && \
-    rm openvidu-call-back/package-lock.json && \
-    rm -rf openvidu-call-${BRANCH_NAME} && \
+    # mv openvidu-call-${BRANCH_NAME}/openvidu-call-front/ . && \
+    # mv openvidu-call-${BRANCH_NAME}/openvidu-call-back/ . && \
+    # rm openvidu-call-front/package-lock.json && \
+    # rm openvidu-call-back/package-lock.json && \
+    # rm -rf openvidu-call-${BRANCH_NAME} && \
     # Instala dependencias para el front y despliega en prd
     npm i --prefix openvidu-call-front && \
     npm run build-prod ${BASE_HREF} --prefix openvidu-call-front && \
