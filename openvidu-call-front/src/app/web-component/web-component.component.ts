@@ -62,8 +62,8 @@ export class WebComponentComponent {
 			}
 			// Leave session when sessionConfig is an empty Object
 			if (this.isEmpty(config)) {
-				this.log.w('Parameters received are incorrect.', config);
-				this.log.w('Exit session');
+				this.log.w('Parametros recibidos incorrectos.', config);
+				this.log.w('Saliendo');
 				this.videoRoom?.leaveSession();
 				return;
 			}

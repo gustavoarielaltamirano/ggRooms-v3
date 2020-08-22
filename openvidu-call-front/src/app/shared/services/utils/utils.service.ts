@@ -46,22 +46,22 @@ export class UtilsService {
 	}
 
 	getOpenViduAvatar(): string {
-		return 'assets/images/openvidu_globe_bg_transp_cropped.png';
+		return 'assets/images/favicon.svg';
 	}
 
 	handlerScreenShareError(error: any) {
 		if (error && error.name === 'SCREEN_SHARING_NOT_SUPPORTED') {
-			alert('Your browser does not support screen sharing');
+			alert('Tu navegador no soporta la opción de compartir pantalla');
 		} else if (error && error.name === 'SCREEN_EXTENSION_DISABLED') {
-			alert('You need to enable screen sharing extension');
+			alert('Necesitas habilitar la extensión para compartir pantalla');
 		} else if (error && error.name === 'SCREEN_CAPTURE_DENIED') {
-			// alert('You need to choose a window or application to share');
+			alert('Es necesario seleccionar una pantalla o aplicación que compartir');
 		}
 	}
 
 
 	generateNickname(): string {
-		return 'OpenVidu_User' + Math.floor(Math.random() * 100);
+		return 'Invitado' + Math.floor(Math.random() * 100);
 	}
 
 	isFirefox(): boolean {
@@ -121,7 +121,7 @@ export class UtilsService {
 		try {
 			nickname = JSON.parse(data).clientData;
 		} catch (error) {
-			nickname = 'Unknown';
+			nickname = 'Desconocido';
 		}
 		return nickname;
 	}

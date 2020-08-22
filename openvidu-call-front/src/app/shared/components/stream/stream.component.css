@@ -8,9 +8,9 @@
 }
 .nicknameContainer {
   background-color: #424242;
-  padding: 5px;
+  padding: 7px;
   color: #ffffff;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 #dialogNickname {

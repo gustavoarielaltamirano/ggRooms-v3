@@ -3,7 +3,7 @@
 		<div id="chatToolbar">
 			<span> CHAT</span>
 			<button mat-icon-button (click)="close()" id="closeButton">
-				<mat-icon matTooltip="Close" color="warn">highlight_off</mat-icon>
+				<mat-icon matTooltip="Cerrar" color="primary">highlight_off</mat-icon>
 			</button>
 		</div>
 		<div class="message-wrap" #chatScroll>
@@ -24,14 +24,14 @@
 		<div id="messageInput">
 			<input
 				#chatInput
-				placeholder="Send a message"
+				placeholder="Escribí tu mensaje"
 				autocomplete="off"
 				(keypress)="eventKeyPress($event)"
 				[(ngModel)]="message"
 				id="chatInput"
 			/>
 			<button mat-mini-fab id="sendButton" (click)="sendMessage()">
-				<mat-icon matTooltip="Send">send</mat-icon>
+				<mat-icon matTooltip="Enviar">send</mat-icon>
 			</button>
 		</div>
 	</div>

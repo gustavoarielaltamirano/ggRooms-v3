@@ -180,7 +180,7 @@ export class RoomConfigComponent implements OnInit, OnDestroy {
 					.getMediaStream()
 					.getVideoTracks()[0]
 					.addEventListener('ended', () => {
-						this.log.d('Clicked native stop button. Stopping screen sharing');
+						this.log.d('Boton Stop pulsado. Deteniendo pantalla compartida');
 						this.toggleScreenShare();
 					});
 				this.localUsersService.enableScreenUser(screenPublisher);
@@ -190,7 +190,7 @@ export class RoomConfigComponent implements OnInit, OnDestroy {
 			});
 
 			screenPublisher.on('accessDenied', (event) => {
-				this.log.w('ScreenShare: Access Denied');
+				this.log.w('Compartir pantalla: Acceso denegado');
 			});
 			return;
 		}
@@ -374,16 +374,16 @@ export class RoomConfigComponent implements OnInit, OnDestroy {
 		publisher.once('accessDenied', (e: any) => {
 			let message: string;
 			if (e.name === OpenViduErrorName.DEVICE_ALREADY_IN_USE) {
-				this.log.w('Video device already in use. Disabling video device...');
+				this.log.w('El dispositivo de video ya se encuentra uso. deshabilitando el dispositivo de video...');
 				// Allow access to the room with only mic if camera device is already in use
 				this.hasVideoDevices = false;
 				this.oVDevicesService.disableVideoDevices();
 				return this.initwebcamPublisher();
 			}
 			if (e.name === OpenViduErrorName.DEVICE_ACCESS_DENIED) {
-				message = 'Access to media devices was not allowed.';
+				message = 'El acceso a los dispositivos multimedia no fue habilitado.';
 			} else if (e.name === OpenViduErrorName.NO_INPUT_SOURCE_SET) {
-				message = 'No video or audio devices have been found. Please, connect at least one.';
+				message = 'No fue posible acceder a los dispositivos de Video y Audio. Es necesario que conectes al menos uno.';
 			}
 			this.utilsSrv.showErrorMessage(e.name.replace(/_/g, ' '), message, true);
 			this.log.e(e.message);

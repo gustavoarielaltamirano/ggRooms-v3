@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
 	constructor(private router: Router, public formBuilder: FormBuilder) {}
 
 	ngOnInit() {
-		const randomName = uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals], separator: '-', });
+		// const randomName = uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals], separator: '-', });
+		const randomName = 'reunion-general';
 		this.roomForm = new FormControl(randomName, [Validators.minLength(4), Validators.required]);
 	}
 

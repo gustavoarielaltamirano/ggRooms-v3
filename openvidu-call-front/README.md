@@ -1,4 +1,4 @@
-# OpenviduCall
+# Rooms
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
@@ -16,7 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Use the `--configuration`  flag for a set the environment file.
 
- For example: `--configuration=production`. Moreover, inside of `environment.production.ts` should exist the `openvidu_url` and `openvidu_secret` fields. Where `openvidu_url`  will be the url where openvidu exist and its port. For example  `https://call.openvidu.io:4443`
+ For example: `--configuration=production`. Moreover, inside of `environment.production.ts` should exist the `_url` and `_secret` fields. Where `_url`  will be the url where server exist and its port. For example  `https://server:4443`
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

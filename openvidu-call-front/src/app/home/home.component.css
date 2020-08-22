@@ -1,5 +1,5 @@
 .section1 {
-  background: url('./../../assets/images/bg.jpg')  top center no-repeat;
+  background: url('./../../assets/images/bg13.jpg')  top center no-repeat;
   background-size: cover;
   height: 100%;
   text-align: center;
@@ -127,11 +127,11 @@ h4 {
   right: -2px;
   bottom: 0;
   border: 0;
-  background: none;
+  /* background: none; */
   font-size: 16px;
   font-weight: bold;
   padding: 0 20px;
-  background: #00ad4e;
+  background: #33C3F0;
   color: #fff;
   border-radius: 0px 5px 10px 0px;
   transition: 0.3s;
@@ -141,6 +141,18 @@ h4 {
 
 .joinButton:hover {
   background: #009242;
+}
+
+#brand-text {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  vertical-align: text-bottom;
+  text-align: left;
+  color: white;
+}
+
+#header a {
+  text-decoration: none;
 }
 
 
