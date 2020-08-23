@@ -28,7 +28,7 @@ export class DevicesService {
 
 	async initDevices() {
 		await this.initOpenViduDevices();
-		this.devices.length > 0 ? this.log.d('Devices found: ', this.devices) : this.log.w('No devices found!');
+		this.devices.length > 0 ? this.log.d('Dispositivos encontrados: ', this.devices) : this.log.w('No se detectaron dispositivos!');
 		this.resetDevicesArray();
 		if (this.hasAudioDeviceAvailable()) {
 			this.initAudioDevices();
@@ -73,12 +73,12 @@ export class DevicesService {
 
 			this.cameras.push(myDevice);
 		});
-		this.log.d('Camera selected', this.camSelected);
+		this.log.d('Camara seleccionada', this.camSelected);
 	}
 
 	getCamSelected(): IDevice {
 		if (this.cameras.length === 0) {
-			this.log.e('No video devices found!');
+			this.log.e('No se encontro un dispositivo de video!');
 			return;
 		}
 		const storageDevice = this.getCamFromStorage();
@@ -98,7 +98,7 @@ export class DevicesService {
 
 	getMicSelected(): IDevice {
 		if (this.microphones.length === 0) {
-			this.log.e('No audio devices found!');
+			this.log.e('No se encontro un dispositivo de audio!');
 			return;
 		}
 		const storageDevice = this.getMicFromStogare();
@@ -189,8 +189,8 @@ export class DevicesService {
 	}
 
 	private resetDevicesArray() {
-		this.cameras = [{ label: 'None', device: null, type: null }];
-		this.microphones = [{ label: 'None', device: null, type: null }];
+		this.cameras = [{ label: 'Ninguno', device: null, type: null }];
+		this.microphones = [{ label: 'Ninguno', device: null, type: null }];
 	}
 
 

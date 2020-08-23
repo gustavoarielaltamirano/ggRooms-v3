@@ -24,11 +24,11 @@ export class NetworkService {
 			return await this.createToken(_sessionId, openviduServerUrl, openviduSecret);
 		}
 		try {
-			this.log.d('Getting token from backend');
+			this.log.d('Obteniendo token del backend');
 			return await this.http.post<any>(this.baseHref + 'call', {sessionId}).toPromise();
 		} catch (error) {
 			if (error.status === 404) {
-				throw {status: error.status, message: 'Cannot connect with backend. ' + error.url + ' not found'};
+				throw {status: error.status, message: 'No hay conexion con el backend. ' + error.url + ' no encontrado'};
 			}
 			throw error;
 		}

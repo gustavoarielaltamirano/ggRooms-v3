@@ -84,7 +84,7 @@ export class ChatService {
 	}
 
 	toggleChat() {
-		this.log.d('Toggling chat');
+		this.log.d('Alternando chat');
 		this.chatComponent.toggle().then(() => {
 			this.chatOpened = this.chatComponent.opened;
 			this._toggleChat.next(this.chatOpened);

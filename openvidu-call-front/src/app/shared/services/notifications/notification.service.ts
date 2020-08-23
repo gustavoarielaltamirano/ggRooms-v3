@@ -8,7 +8,7 @@ export class NotificationService {
 	constructor(private snackBar: MatSnackBar) {}
 
 	newMessage(nickname: string, callback) {
-		const alert = this.launchNotification(nickname + ' sent a message', 'OPEN', 'messageSnackbar', 3000);
+		const alert = this.launchNotification(nickname + ' enviar mensaje', 'OPEN', 'messageSnackbar', 3000);
 		alert.onAction().subscribe(() => {
 			callback();
 		  });

@@ -120,6 +120,7 @@ export class UtilsService {
 		let nickname: string;
 		try {
 			nickname = JSON.parse(data).clientData;
+			// console.log(nickname);
 		} catch (error) {
 			nickname = 'Desconocido';
 		}

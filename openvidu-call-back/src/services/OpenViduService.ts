@@ -10,7 +10,7 @@ export class OpenViduService {
 
 	public async createSession(sessionId: string, openviduUrl: string, openviduSecret: string ): Promise<any> {
         const url = openviduUrl + '/api/sessions';
-        console.log("Requesting session to ", url);
+        console.log("Solicitud de sesion ", url);
         const body: string = JSON.stringify({ customSessionId: sessionId});
 
         return await this.httpClientService.post(body, url, openviduSecret);
@@ -18,7 +18,7 @@ export class OpenViduService {
 
 	public async createToken(sessionId: string, openviduUrl: string, openviduSecret: string ): Promise<any> {
 		const url = openviduUrl + '/api/tokens';
-        console.log("Requesting token to ", url);
+        console.log("Solicitud de token ", url);
         const body: string = JSON.stringify({ session: sessionId });
 
         return await this.httpClientService.post(body, url, openviduSecret);

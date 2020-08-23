@@ -34,13 +34,13 @@ export class TokenService {
 	async initTokens(externalConfig: ExternalConfigModel) {
 		// WebComponent or Angular library
 		if (!!externalConfig && externalConfig.hasTokens()) {
-			this.log.d('Received external tokens from ' + externalConfig.getComponentName());
+			this.log.d('Recibiendo token ' + externalConfig.getComponentName());
 			this.webcamToken = externalConfig.getWebcamToken();
 			// Only connect screen if screen sharing feature is available
 			this.screenToken = this.ovSettings?.hasScreenSharing() ? externalConfig.getScreenToken() : undefined;
 			return;
 		}
-		this.log.d('No external tokens received. Generating token...');
+		this.log.d('Token no recibido. Generando...');
 		await this.generateWebcamToken(this.sessionId, externalConfig?.getOvServerUrl(), externalConfig?.getOvSecret());
 		// TODO: create screenToken only when user initialize the screen
 		if (this.ovSettings?.hasScreenSharing()) {
@@ -57,12 +57,12 @@ export class TokenService {
 	}
 
 	private async generateWebcamToken(sessionId: string, ovUrl: string, ovSecret: string) {
-		this.log.d('Generating webcam token...');
+		this.log.d('Generando token para la camara...');
 		this.webcamToken = await this.networkSrv.getToken(sessionId, ovUrl, ovSecret);
 	}
 
 	private async generateScreenToken(sessionId: string, ovUrl: string, ovSecret: string) {
-		this.log.d('Generating screen token...');
+		this.log.d('Generando token para compartir pantalla...');
 		this.screenToken = await this.networkSrv.getToken(sessionId, ovUrl, ovSecret);
 	}
 }

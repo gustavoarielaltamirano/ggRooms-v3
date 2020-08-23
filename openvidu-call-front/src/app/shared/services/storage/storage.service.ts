@@ -23,7 +23,7 @@ export class StorageService {
 		return value?.item ? value.item : null;
 	}
 	public clear() {
-		this.log.d('Clearing localStorage');
+		this.log.d('Limpiando localStorage');
 		this.storage.clear();
 	}
 }

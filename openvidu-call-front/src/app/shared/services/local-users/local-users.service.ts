@@ -61,7 +61,7 @@ export class LocalUsersService {
 	}
 
 	enableScreenUser(screenPublisher: Publisher) {
-		this.log.d('Enabling screen publisher');
+		this.log.d('Habilitando publicador compartir pantalla');
 
 		const connectionId = screenPublisher?.session?.connection?.connectionId;
 

@@ -23,7 +23,7 @@ export class WebComponentModel extends ExternalConfigModel {
 			// Allow screen sharing only if two tokens are received
 			this.ovSettings.setScreenSharing(this.ovSettings.hasScreenSharing() && this.tokens?.length > 1);
 			if (!this.ovSettings.hasScreenSharing()) {
-				console.warn('ScreenSharing has been disabled. OpenVidu Angular has received only one token.');
+				console.warn('Compartir pantalla fue deshabilitado. Solo se recibio un token y se necesitan 2.');
 			}
 		}
 	}

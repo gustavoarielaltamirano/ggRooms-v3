@@ -71,7 +71,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 
 	async connectWebcamSession(token: string): Promise<any> {
 		if (!!token) {
-			this.log.d('Connecting webcam session');
+			this.log.d('Conectando con la webcam');
 			const webcamUsername = this.localUsersSrv.getWebcamUserName();
 			const webcamAvatar = this.localUsersSrv.getWebcamAvatar();
 			await this.webcamSession.connect(token, { clientData: webcamUsername, avatar: webcamAvatar });
@@ -79,7 +79,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 	}
 	disconnectWebcamSession(): void {
 		if (this.webcamSession) {
-			this.log.d('Disconnecting webcam session');
+			this.log.d('Desconectando con la webcam');
 			this.webcamSession.disconnect();
 			this.webcamSession = null;
 		}
@@ -87,7 +87,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 
 	async connectScreenSession(token: string): Promise<any> {
 		if (!!token) {
-			this.log.d('Connecting screen session');
+			this.log.d('Conectando compartir pantalla');
 			const screenUsername = this.localUsersSrv.getScreenUserName();
 			const webcamAvatar = this.localUsersSrv.getWebcamAvatar();
 			await this.screenSession.connect(token, { clientData: screenUsername, avatar: webcamAvatar });
@@ -95,7 +95,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 	}
 	disconnectScreenSession(): void {
 		if (this.screenSession) {
-			this.log.d('Disconnecting screen session');
+			this.log.d('Desconectando compartir pantalla');
 			this.screenSession.disconnect();
 			this.screenSession = null;
 		}
@@ -113,7 +113,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 	}
 
 	initPublisher(targetElement: string | HTMLElement, properties: PublisherProperties): Publisher {
-		this.log.d('Initializing publisher with properties: ', properties);
+		this.log.d('Inicializando el publicador con estas propiedades: ', properties);
 
 		const publisher = this.OV.initPublisher(targetElement, properties);
 		// this.localUsersSrv.setWebcamPublisher(publisher);
@@ -124,7 +124,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 	}
 
 	async initPublisherAsync(targetElement: string | HTMLElement, properties: PublisherProperties): Promise<Publisher> {
-		this.log.d('Initializing publisher with properties: ', properties);
+		this.log.d('Inicializando el publicador con estas propiedades: ', properties);
 
 		const publisher = await this.OV.initPublisherAsync(targetElement, properties);
 		// this.localUsersSrv.setWebcamPublisher(publisher);
@@ -162,7 +162,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 				return await this.webcamSession.publish(publisher);
 			}
 		}
-		this.log.e('Webcam publisher cannot be published');
+		this.log.e('Publicador de webcam no puede publicarse');
 	}
 	unpublishWebcamPublisher(): void {
 		const publisher = this.localUsersSrv.getWebcamPublisher();
@@ -178,7 +178,7 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 				return await this.screenSession.publish(publisher);
 			}
 		}
-		this.log.e('Screen publisher cannot be published');
+		this.log.e('Publicador compartir pantalla no puede publicarse');
 	}
 
 	unpublishScreenPublisher(): void {
@@ -207,12 +207,12 @@ export class OpenViduWebrtcService implements IOpenViduWebRTC {
 	replaceTrack(videoSource: string, audioSource: string, mirror: boolean = true): Promise<any> {
 		return new Promise((resolve, reject) => {
 			if (!!videoSource) {
-				this.log.d('Replacing video track ' + videoSource);
+				this.log.d('Reemplazo del track de video ' + videoSource);
 				this.videoSource = videoSource;
 				// this.stopVideoTracks(this.webcamUser.getStreamManager().stream.getMediaStream());
 			}
 			if (!!audioSource) {
-				this.log.d('Replacing audio track ' + audioSource);
+				this.log.d('Reemplazo del track de audio ' + audioSource);
 				this.audioSource = audioSource;
 				// this.stopAudioTracks(this.webcamUser.getStreamManager().stream.getMediaStream());
 			}
