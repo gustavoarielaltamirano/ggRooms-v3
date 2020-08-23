@@ -21,7 +21,8 @@ RUN wget "https://github.com/gustavoarielaltamirano/ggRooms-v3/raw/master/archiv
     # rm -rf openvidu-call-master && \
     # Instala dependencias para el front y despliega en prd
     npm i --prefix openvidu-call-front && \
-    npm run build-prod master --prefix openvidu-call-front && \
+    #npm run build-prod master --prefix openvidu-call-front && \
+    npm run build-prod --prefix openvidu-call-front && \
     rm -rf openvidu-call-front && \
     # Instala dependencias para el back y construye el despliegue en prd
     npm i --prefix openvidu-call-back && \
