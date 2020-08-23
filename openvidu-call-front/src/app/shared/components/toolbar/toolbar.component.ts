@@ -89,7 +89,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 			this.isWebcamVideoEnabled = enabled;
 		});
 		if (this.lightTheme) {
-			this.logoUrl = 'assets/images/openvidu_logo_grey.png';
+			this.logoUrl = 'assets/images/favion.png';
 		}
 	}
 
